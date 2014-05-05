@@ -1,0 +1,18 @@
+{
+	"manifest_version": 1,
+	"name": "Likeastore",
+	"description": "Social bookmarks for geeks.",
+	"version": "1.0",
+	"default_locale": "en",
+
+	"permissions": [
+		"tabs",
+		"http://*/*", "https://*/*"
+	],
+
+	"icons" : {
+		"16": "img/logo_16px.png",
+		"48" : "img/logo_48px.png",
+		"128" : "img/logo_128px.png"
+	}
+}
