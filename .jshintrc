@@ -25,7 +25,10 @@
 		"process",
 		"console",
 		"__dirname",
-		"Buffer"
+		"Buffer",
+		"$",
+		"jQuery",
+		"chrome"
 	],
 
 	"asi" : false,

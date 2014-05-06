@@ -1,14 +1,21 @@
 {
-	"manifest_version": 1,
+	"manifest_version": 2,
 	"name": "Likeastore",
 	"description": "Social bookmarks for geeks.",
-	"version": "1.0",
-	"default_locale": "en",
+	"version": "1.0.0",
 
 	"permissions": [
 		"tabs",
+		"activeTab",
 		"http://*/*", "https://*/*"
 	],
+
+	"content_scripts": [{
+		"run_at": "document_end",
+		"css": ["css/content.css"],
+		"js": ["libs/jquery-2.1.1.min.js", "libs/jquery-wait.until.js", "js/content.js"],
+		"matches": [ "http://*/*", "https://*/*" ]
+	}],
 
 	"icons" : {
 		"16": "img/logo_16px.png",
