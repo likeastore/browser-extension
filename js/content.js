@@ -4,7 +4,7 @@
 
 	var MainView = function () {
 		var self = this;
-		self.$ = $('<div class="likeastore-search"></div>');
+		self.$ = $('<div class="search"></div>');
 
 		self.render = function () {
 			return self;
@@ -17,7 +17,7 @@
 
 	var LoginView = function () {
 		var self = this;
-		self.$ = $('<div class="likeastore-login"></div>');
+		self.$ = $('<div class="login"></div>');
 
 		self.render = function () {
 			self.$.html('<h1>You need to login</h1>');
@@ -27,7 +27,7 @@
 
 	var ResultsView = function (block) {
 		var self = this;
-		self.$ = $('<div class="likeastore-search-results"></div>');
+		self.$ = $('<div class="search-results"></div>');
 
 		self.render = function () {
 			self.$.html('<h1>Likeastore search results</h1>');
