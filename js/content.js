@@ -29,13 +29,35 @@
 		};
 	};
 
-	var ResultsView = function (block) {
+	var ResultsView = function (results) {
 		var self = this;
 
-		self.$ = $('<div class="search-results"></div>');
+		var context = results.data.map(function (item) {
+			return {
+				title: item.title || item.repo || item.name || item.authorName,
+				description: item.description,
+				source: item.source,
+				thumbnail: item.thumbnail
+			};
+		});
+
+		var template = '\
+			{{.}}\
+				<li class="item">\
+					<a href={{source}}>{{title}}</a>\
+					<div class="description">{{description}}</div>\
+				</li>\
+			{{/.}}\
+		';
+
+
+		self.$ = $('<ul class="results"></ul>');
 
 		self.render = function () {
-			self.$.html('<h1>Likeastore search results</h1>');
+
+			var content = Mark.up(template, context);
+
+			self.$.html(content);
 			return self;
 		};
 	};

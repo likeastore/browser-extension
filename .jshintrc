@@ -28,7 +28,8 @@
 		"Buffer",
 		"$",
 		"jQuery",
-		"chrome"
+		"chrome",
+		"Mark"
 	],
 
 	"asi" : false,
