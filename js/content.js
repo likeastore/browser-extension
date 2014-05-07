@@ -6,7 +6,7 @@
 		var self = this;
 		self.$ = $('\
 			<div class="search">\
-				<p><span class="icon"> Likeastore - social bookmarks.</p>\
+				<h1>Likeastore - social bookmarks.</h1>\
 				<div class="container"></div>\
 			</div>');
 
@@ -15,7 +15,7 @@
 		};
 
 		self.subview = function(view) {
-			self.$.find('.container').replaceWith(view.render().$);
+			self.$.find('.container').html(view.render().$);
 		};
 	};
 
@@ -31,6 +31,7 @@
 
 	var ResultsView = function (block) {
 		var self = this;
+
 		self.$ = $('<div class="search-results"></div>');
 
 		self.render = function () {

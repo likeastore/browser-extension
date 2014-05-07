@@ -2,6 +2,10 @@
 
 }
 
+.icon {
+	background-image: url(chrome-extension://__MSG_@@extension_id__/img/logo_16px.png);
+}
+
 .login {
 
 }

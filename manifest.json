@@ -6,7 +6,6 @@
 
 	"permissions": [
 		"tabs",
-		"activeTab",
 		"http://*/*", "https://*/*"
 	],
 
@@ -21,5 +20,9 @@
 		"16": "img/logo_16px.png",
 		"48" : "img/logo_48px.png",
 		"128" : "img/logo_128px.png"
-	}
+	},
+
+	"web_accessible_resources": [
+		"img/*.png"
+	]
 }
