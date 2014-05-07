@@ -4,14 +4,18 @@
 
 	var MainView = function () {
 		var self = this;
-		self.$ = $('<div class="search"></div>');
+		self.$ = $('\
+			<div class="search">\
+				<p><span class="icon"> Likeastore - social bookmarks.</p>\
+				<div class="container"></div>\
+			</div>');
 
 		self.render = function () {
 			return self;
 		};
 
 		self.subview = function(view) {
-			self.$.replaceWith(view.render().$);
+			self.$.find('.container').replaceWith(view.render().$);
 		};
 	};
 
