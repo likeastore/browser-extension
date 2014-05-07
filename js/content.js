@@ -45,7 +45,7 @@
 			{{.}}\
 				<li class="item">\
 					<a href={{source}}>{{title}}</a>\
-					<div class="description">{{description}}</div>\
+					<div class="description">{{description|chop>80}}</div>\
 				</li>\
 			{{/.}}\
 		';
