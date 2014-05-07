@@ -13,7 +13,7 @@
 	"content_scripts": [{
 		"run_at": "document_end",
 		"css": ["css/content.css"],
-		"js": ["libs/jquery-2.1.1.min.js", "libs/jquery-wait.until.js", "js/content.js"],
+		"js": ["libs/jquery-2.1.1.min.js", "libs/jquery-wait.until.js", "js/query.js", "js/content.js"],
 		"matches": [ "http://*/*", "https://*/*" ]
 	}],
 
