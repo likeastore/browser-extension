@@ -31,7 +31,7 @@
 		self.$ = $('<div class="ls-login"></div>');
 
 		self.render = function () {
-			self.$.html('<a href="https://likeastore.com/login">Log In</a> or <a href="https://likeastore.com/login">Create Account</a> to search your likes.');
+			self.$.html('<a href="https://likeastore.com/login" target="_blank">Log In</a> or <a href="https://likeastore.com/login" target="_blank">Create Account</a> to search your likes.');
 			return self;
 		};
 	};
@@ -63,7 +63,7 @@
 				</li>\
 			{{/data}}\
 			<li class="ls-more">\
-				Not found yet? Visit web site for more <a href="{{more}}">results.</a>\
+				Not found yet? Visit web site for <a href="{{more}}">more</a> results.\
 			</li>\
 		';
 
