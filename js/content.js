@@ -50,7 +50,7 @@
 		});
 
 		var searchResults = '\
-			{{.}}\
+			{{data}}\
 				<li class="item">\
 					<a href={{source}} class="ls-title">{{title}}</a>\
 					<div class="ls-link">\
@@ -61,7 +61,10 @@
 						You have favorited this page on {{date}}\
 					</div>\
 				</li>\
-			{{/.}}\
+			{{/data}}\
+			<li class="ls-more">\
+				Not found yet? Visit web site for more <a href="{{more}}">results.</a>\
+			</li>\
 		';
 
 		var searchEmpty = '\
@@ -72,7 +75,10 @@
 
 		self.render = function () {
 			var template = context.length > 0 ? searchResults : searchEmpty;
-			var content = Mark.up(template, context);
+			var text = app.searchQuery();
+
+			var more = 'https://app.likeastore.com/search?text=' + encodeURI(text);
+			var content = Mark.up(template, {data: context, more: more});
 
 			self.$.html(content);
 			return self;
