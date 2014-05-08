@@ -56,7 +56,7 @@
 					<div class="ls-link">\
 						<a href={{source}}>{{source}}</a>\
 					</div>\
-					<div class="ls-description">{{description|tease>16}}</div>\
+					<div class="ls-description">{{description|tease>21}}</div>\
 					<div class="ls-date">\
 						You have favorited this page on {{date}}\
 					</div>\
