@@ -1,15 +1,44 @@
-.search {
+.ls-search {
+	-webkit-box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+	display: box;
+	padding: 20px;
+	font-size: 16px;
+	line-height: 1.24;
+}
+
+.ls-title: {
+	font-size: 15px;
+	padding: 4px 0;
+}
+
+.ls-container {
+	margin-top: 10px;
+}
+
+.ls-container ul li {
+	list-style: none;
+}
+
+.ls-container li {
+	padding: 5px 0;
+}
+
+.ls-description {
+	color: #545454;
+	font-size: small;
+}
+
+.ls-link a {
+	color: #006621 !important;
+	font-style: normal;
+	font-size: 13px;
+}
+
+.ls-login {
 
 }
 
-.icon {
-	background-image: url(chrome-extension://__MSG_@@extension_id__/img/logo_16px.png);
-}
-
-.login {
-
-}
-
-.results {
+.lsresults {
 
 }

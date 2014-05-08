@@ -5,9 +5,9 @@
 	var MainView = function () {
 		var self = this;
 		self.$ = $('\
-			<div class="search">\
+			<div class="ls-search">\
 				<h1>Likeastore - social bookmarks.</h1>\
-				<div class="container"></div>\
+				<div class="ls-container"><div class="ls-loader"></div></div>\
 			</div>');
 
 		self.render = function () {
@@ -15,13 +15,13 @@
 		};
 
 		self.subview = function(view) {
-			self.$.find('.container').html(view.render().$);
+			self.$.find('.ls-container').html(view.render().$);
 		};
 	};
 
 	var LoginView = function () {
 		var self = this;
-		self.$ = $('<div class="login"></div>');
+		self.$ = $('<div class="ls-login"></div>');
 
 		self.render = function () {
 			self.$.html('<h1>You need to login</h1>');
@@ -41,20 +41,26 @@
 			};
 		});
 
-		var template = '\
+		var searchResults = '\
 			{{.}}\
 				<li class="item">\
-					<a href={{source}}>{{title}}</a>\
-					<div class="description">{{description|chop>80}}</div>\
+					<a href={{source}} class="ls-title">{{title}}</a>\
+					<div class="ls-link">\
+						<a href={{source}}>{{source}}</a>\
+					</div>\
+					<div class="ls-description">{{description|tease>10}}</div>\
 				</li>\
 			{{/.}}\
 		';
 
+		var searchEmpty = '\
+			<p>Sorry, nothing found for this query.</p>\
+		';
 
-		self.$ = $('<ul class="results"></ul>');
+		self.$ = $('<ul class="ls-results"></ul>');
 
 		self.render = function () {
-
+			var template = context.length > 0 ? searchResults : searchEmpty;
 			var content = Mark.up(template, context);
 
 			self.$.html(content);
