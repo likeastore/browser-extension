@@ -5,6 +5,7 @@
 	padding: 20px;
 	font-size: 16px;
 	line-height: 1.24;
+	width: 100%;
 }
 
 .ls-title: {
@@ -33,6 +34,11 @@
 	color: #006621 !important;
 	font-style: normal;
 	font-size: 13px;
+}
+
+.ls-date {
+	color: #808080;
+	font-size: small;
 }
 
 .ls-login {

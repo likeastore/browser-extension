@@ -4,9 +4,15 @@
 
 	var MainView = function () {
 		var self = this;
+		var logo = chrome.extension.getURL("img/logo.png");
+
 		self.$ = $('\
 			<div class="ls-search">\
-				<h1>Likeastore - social bookmarks.</h1>\
+				<div class="logo">\
+					<a href="https://likeastore.com">\
+						<img src="' + logo +'" alt="likeastore.com" style="width: 180px" />\
+					</a>\
+				</div>\
 				<div class="ls-container"><div class="ls-loader"></div></div>\
 			</div>');
 
@@ -37,7 +43,8 @@
 				title: item.title || item.repo || item.name || item.authorName,
 				description: item.description,
 				source: item.source,
-				thumbnail: item.thumbnail
+				thumbnail: item.thumbnail,
+				date: new Date(item.date).toLocaleDateString()
 			};
 		});
 
@@ -48,7 +55,10 @@
 					<div class="ls-link">\
 						<a href={{source}}>{{source}}</a>\
 					</div>\
-					<div class="ls-description">{{description|tease>10}}</div>\
+					<div class="ls-description">{{description|tease>16}}</div>\
+					<div class="ls-date">\
+						You have favorited this page on {{date}}\
+					</div>\
 				</li>\
 			{{/.}}\
 		';
