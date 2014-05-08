@@ -2,7 +2,7 @@
 	var app = window.app = window.app || {};
 	var api = 'https://app.likeastore.com/api';
 
-	var MainView = function () {
+	var MainView = function (block) {
 		var self = this;
 		var logo = chrome.extension.getURL("img/logo.png");
 
@@ -17,6 +17,7 @@
 			</div>');
 
 		self.render = function () {
+			block.prepend(self.$);
 			return self;
 		};
 
@@ -79,19 +80,20 @@
 	};
 
 	var App = function (block) {
-		var mainView = new MainView();
-		block.prepend(mainView.render().$);
-
 		var user = function () {
 			return $.get(api + '/users/me');
 		};
 
 		var login = function () {
+			var mainView = new MainView(block);
 			mainView.subview(new LoginView());
+			mainView.render();
 		};
 
 		var results = function (res) {
+			var mainView = new MainView(block);
 			mainView.subview(new ResultsView(res));
+			mainView.render();
 		};
 
 		var search = function () {
