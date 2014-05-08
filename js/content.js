@@ -58,7 +58,7 @@
 					</div>\
 					<div class="ls-description">{{description|tease>21}}</div>\
 					<div class="ls-date">\
-						You have favorited this page on {{date}}\
+						You\'ve favorited this page on {{date}}\
 					</div>\
 				</li>\
 			{{/data}}\
