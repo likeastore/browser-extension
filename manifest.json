@@ -12,7 +12,7 @@
 	"content_scripts": [{
 		"run_at": "document_end",
 		"css": ["css/content.css"],
-		"js": ["libs/jquery-2.1.1.min.js", "libs/jquery-wait.until.js", "libs/markup-1.5.18.min.js", "js/query.js", "js/content.js"],
+		"js": ["libs/jquery-2.1.1.min.js", "libs/jquery-wait.until.js", "libs/markup-1.5.18.min.js", "libs/purl-2.3.1.js", "js/query.js", "js/content.js"],
 		"matches": [
 			"*://www.google.com/*",
 			"*://www.google.com.af/*",
