@@ -31,7 +31,7 @@
 		self.$ = $('<div class="ls-login"></div>');
 
 		self.render = function () {
-			self.$.html('<h1>You need to login</h1>');
+			self.$.html('<a href="https://likeastore.com/login">Log In</a> or <a href="https://likeastore.com/login">Create Account</a> to search your likes.');
 			return self;
 		};
 	};

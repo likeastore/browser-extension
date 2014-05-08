@@ -6,6 +6,7 @@
 	font-size: 16px;
 	line-height: 1.24;
 	width: 100%;
+	margin-bottom: 10px;
 }
 
 .ls-title: {
@@ -48,9 +49,14 @@
 }
 
 .ls-login {
-
+	color: #808080;
+	font-size: small;
 }
 
-.lsresults {
+.ls-login a {
+	color: #808080;
+}
 
+.ls-login a:visited {
+	color: #808080;
 }
