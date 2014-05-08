@@ -105,7 +105,7 @@
 		var search = function () {
 			var text = app.searchQuery();
 
-			$.get(api + '/search?text=' + text)
+			$.get(api + '/search?text=' + text + '&pageSize=7')
 				.done(results)
 				.fail(login);
 		};
