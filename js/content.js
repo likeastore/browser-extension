@@ -31,7 +31,7 @@
 		self.$ = $('<div class="ls-login"></div>');
 
 		self.render = function () {
-			self.$.html('<a href="https://likeastore.com/login" target="_blank">Log In</a> or <a href="https://likeastore.com/login" target="_blank">Create Account</a> to search your likes.');
+			self.$.html('<a href="https://likeastore.com/login" target="_blank">Log In</a> or <a href="https://likeastore.com/join" target="_blank">Create Account</a> to search your likes.');
 			return self;
 		};
 	};
@@ -49,7 +49,7 @@
 			};
 		});
 
-		var searchResults = '\
+		var template = '\
 			{{data}}\
 				<li class="item">\
 					<a href={{source}} class="ls-title">{{title}}</a>\
@@ -67,14 +67,9 @@
 			</li>\
 		';
 
-		var searchEmpty = '\
-			<p>Sorry, nothing found for this query.</p>\
-		';
-
 		self.$ = $('<ul class="ls-results"></ul>');
 
 		self.render = function () {
-			var template = context.length > 0 ? searchResults : searchEmpty;
 			var text = app.searchQuery();
 
 			var more = 'https://app.likeastore.com/search?text=' + encodeURI(text);
