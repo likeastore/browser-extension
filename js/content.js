@@ -96,6 +96,12 @@
 			mainView.render();
 		};
 
+		var haveResults = function (fn) {
+			return function (res) {
+				res && res.length > 0 && fn(res);
+			};
+		};
+
 		var results = function (res) {
 			var mainView = new MainView(block);
 			mainView.subview(new ResultsView(res));
@@ -106,7 +112,7 @@
 			var text = app.searchQuery();
 
 			$.get(api + '/search?text=' + text + '&pageSize=10')
-				.done(results)
+				.done(haveResults(results))
 				.fail(login);
 		};
 

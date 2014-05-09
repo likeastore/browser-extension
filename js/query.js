@@ -3,7 +3,7 @@
 
 	function getSearchQuery() {
 		var url = $.url();
-		var query = url.param('q') || url.fparam('q');
+		var query = url.fparam('q') || url.param('q');
 
 		return query;
 	}
