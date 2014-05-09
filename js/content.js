@@ -93,7 +93,7 @@
 
 		var haveResults = function (fn) {
 			return function (res) {
-				res && res.length > 0 && fn(res);
+				res && res.data && res.data.length > 0 && fn(res);
 			};
 		};
 
