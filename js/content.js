@@ -106,14 +106,21 @@
 		var search = function () {
 			var text = app.searchQuery();
 
+			app.analytics.track('search from extension');
+
 			$.get(api + '/search?text=' + text + '&pageSize=10')
 				.done(haveResults(results))
 				.fail(login);
 		};
 
+		var ready = function (user) {
+			app.analytics.init('c5c59411e311ab48cfe2846460be7d7e', user);
+		};
+
 		return {
 			run: function () {
 				user()
+					.done(ready)
 					.done(search)
 					.fail(login);
 			}
