@@ -14,7 +14,8 @@
 			event: event,
 			properties: {
 				distinct_id: mixpanel.distinct_id,
-				token: mixpanel.token
+				token: mixpanel.token,
+				browser: 'Chrome'
 			}
 		};
 
@@ -28,4 +29,5 @@
 		init: init,
 		track: track
 	};
+
 })(window);

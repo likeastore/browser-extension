@@ -2,11 +2,10 @@
 	"manifest_version": 2,
 	"name": "Likeastore",
 	"description": "Social bookmarks for geeks.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 
 	"permissions": [
-		"tabs",
-		"http://*/*", "https://*/*"
+		"tabs"
 	],
 
 	"content_scripts": [{

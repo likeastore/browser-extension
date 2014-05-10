@@ -3,7 +3,8 @@
 	var api = 'https://app.likeastore.com/api';
 
 	var searchQuery = function () {
-		return $.url().fparam('q') || $.url().param('q');
+		var url = $.url();
+		return url.fparam('q') || url.param('q');
 	};
 
 	var MainView = function (block) {
@@ -93,6 +94,8 @@
 			self.$.find('.ls-more a').click(function () {
 				app.analytics.track('search extension more clicked');
 			});
+
+			app.analytics.track('search extension');
 		};
 	};
 
