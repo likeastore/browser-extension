@@ -76,7 +76,19 @@
 			var content = Mark.up(template, {data: context, more: more});
 
 			self.$.html(content);
+			self.bindEvents();
+
 			return self;
+		};
+
+		self.bindEvents = function () {
+			self.$.find('.item a').click(function () {
+				app.analytics.track('search extension results clicked');
+			});
+
+			self.$.find('.ls-more a').click(function () {
+				app.analytics.track('search extension more clicked');
+			});
 		};
 	};
 
@@ -104,9 +116,7 @@
 		};
 
 		var search = function () {
-			var text = app.searchQuery();
-
-			app.analytics.track('search from extension');
+			var text = $.url().fparam('q') || $.url().param('q');
 
 			$.get(api + '/search?text=' + text + '&pageSize=10')
 				.done(haveResults(results))
