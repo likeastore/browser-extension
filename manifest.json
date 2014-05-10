@@ -5,7 +5,8 @@
 	"version": "1.0.1",
 
 	"permissions": [
-		"tabs"
+		"tabs",
+		"https://app.likeastore.com/*"
 	],
 
 	"content_scripts": [{
