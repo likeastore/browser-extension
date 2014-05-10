@@ -2,6 +2,10 @@
 	var app = window.app = window.app || {};
 	var api = 'https://app.likeastore.com/api';
 
+	var searchQuery = function () {
+		return $.url().fparam('q') || $.url().param('q');
+	};
+
 	var MainView = function (block) {
 		var self = this;
 		var logo = chrome.extension.getURL("img/logo.png");
@@ -17,7 +21,7 @@
 			</div>');
 
 		self.render = function () {
-			block.prepend(self.$);
+			block.append(self.$);
 			return self;
 		};
 
@@ -70,7 +74,7 @@
 		self.$ = $('<ul class="ls-results"></ul>');
 
 		self.render = function () {
-			var text = app.searchQuery();
+			var text = searchQuery();
 
 			var more = 'https://app.likeastore.com/search?text=' + encodeURI(text);
 			var content = Mark.up(template, {data: context, more: more});
@@ -116,7 +120,7 @@
 		};
 
 		var search = function () {
-			var text = $.url().fparam('q') || $.url().param('q');
+			var text = searchQuery();
 
 			$.get(api + '/search?text=' + text + '&pageSize=10')
 				.done(haveResults(results))
@@ -137,7 +141,7 @@
 		};
 	};
 
-	$('#rhs').waitUntilExists(function () {
+	$('#rhs_block').waitUntilExists(function () {
 		new App($(this)).run();
 	});
 
