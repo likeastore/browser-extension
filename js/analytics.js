@@ -15,7 +15,6 @@
 			properties: {
 				distinct_id: mixpanel.distinct_id,
 				token: mixpanel.token
-
 			}
 		};
 

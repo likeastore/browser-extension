@@ -19,7 +19,6 @@
 			"libs/purl-2.3.1.js",
 			"libs/base64.js",
 			"js/analytics.js",
-			"js/query.js",
 			"js/content.js"
 		],
 		"matches": [
