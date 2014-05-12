@@ -19,7 +19,11 @@
 					</a>\
 				</div>\
 				<div class="ls-container"><div class="ls-loader"></div></div>\
-			</div>');
+			</div>\
+			<div class="ls-right ls-share">\
+				<a href="https://likeastore.com/share" target="_blank">Share</a>\
+			</div>\
+		');
 
 		self.render = function () {
 			block.append(self.$);
@@ -68,7 +72,9 @@
 				</li>\
 			{{/data}}\
 			<li class="ls-more">\
-				Not found yet? Visit web site for <a href="{{more}}">more</a> results.\
+				<div>\
+					Not found yet? Visit the web site for <a href="{{more}}">more</a> results.\
+				</div>\
 			</li>\
 		';
 

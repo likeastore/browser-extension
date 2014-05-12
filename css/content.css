@@ -5,8 +5,7 @@
 	padding: 20px;
 	font-size: 16px;
 	line-height: 1.24;
-	width: 100%;
-	margin-bottom: 10px;
+	width: 424px;
 }
 
 .ls-title: {
@@ -48,6 +47,10 @@
 	font-size: small;
 }
 
+.ls-more div {
+	display: inline;
+}
+
 .ls-login {
 	color: #808080;
 	font-size: small;
@@ -59,4 +62,15 @@
 
 .ls-login a:visited {
 	color: #808080;
+}
+
+.ls-share a, .ls-share a:visited {
+	color: #777;
+	font-size: 11px;
+	line-height: normal;
+	margin-right: 8px;
+}
+
+.ls-right {
+	float: right;
 }
