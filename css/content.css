@@ -74,3 +74,8 @@
 .ls-right {
 	float: right;
 }
+
+.ls-icon {
+	height: 12px;
+	width: 12px;
+}

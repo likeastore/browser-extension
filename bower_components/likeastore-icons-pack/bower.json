@@ -1,0 +1,26 @@
+{
+  "name": "likeastore-icons-pack",
+  "version": "0.1.0",
+  "homepage": "https://github.com/likeastore/likeastore-social-icons",
+  "description": "Free collection of icons for popular services",
+  "main": "all-preview-green.png",
+  "keywords": [
+    "icons",
+    "socials",
+    "free",
+    "pack",
+    "likeastore",
+    "flat"
+  ],
+  "authors": [
+    "Dmitri Voronianski <dmitri.voronianski@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

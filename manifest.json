@@ -222,6 +222,7 @@
 	},
 
 	"web_accessible_resources": [
-		"img/*.png"
+		"img/*.png",
+		"bower_components/likeastore-icons-pack/128/*.png"
 	]
 }

@@ -11,7 +11,7 @@
 
 	var MainView = function (block) {
 		var self = this;
-		var logo = chrome.extension.getURL("img/logo.png");
+		var logo = chrome.extension.getURL('img/logo.png');
 
 		self.$ = $('\
 			<div class="ls-search">\
@@ -49,6 +49,7 @@
 
 	var ResultsView = function (results) {
 		var self = this;
+		var icons = chrome.extension.getURL('bower_components/likeastore-icons-pack/128');
 
 		var context = results.data.map(function (item) {
 			return {
@@ -56,13 +57,15 @@
 				description: item.description,
 				source: item.source,
 				thumbnail: item.thumbnail,
-				date: new Date(item.date).toLocaleDateString()
+				date: new Date(item.date).toLocaleDateString(),
+				icon: icons + '/' + item.type + '.png'
 			};
 		});
 
 		var template = '\
 			{{data}}\
 				<li class="item">\
+					<img src="{{icon}}" class="ls-icon" />\
 					<a href={{source}} class="ls-title">{{title|tease>7}}</a>\
 					<div class="ls-link">\
 						<a href={{source}}>{{source}}</a>\
