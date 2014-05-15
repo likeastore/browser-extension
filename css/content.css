@@ -22,7 +22,7 @@
 }
 
 .ls-container li {
-	padding: 5px 0;
+	padding: 10px 0;
 }
 
 .ls-description {
@@ -76,6 +76,7 @@
 }
 
 .ls-icon {
-	height: 12px;
-	width: 12px;
+	height: 13px;
+	width: 13px;
+	display: inline-block;
 }

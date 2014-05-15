@@ -51,11 +51,24 @@
 		var self = this;
 		var icons = chrome.extension.getURL('bower_components/likeastore-icons-pack/128');
 
+		var title = function (item) {
+			return item.titleHtml || item.title;
+		};
+
+		var description = function (item) {
+			return item.descriptionHtml || item.description;
+		};
+
+		var source = function (item) {
+			return item.sourceHtml || item.source;
+		};
+
 		var context = results.data.map(function (item) {
 			return {
-				title: item.title || item.description,
-				description: item.description,
-				source: item.source,
+				title: title(item) || description(item),
+				description: description(item),
+				url: item.source,
+				source: source(item),
 				thumbnail: item.thumbnail,
 				date: new Date(item.date).toLocaleDateString(),
 				icon: icons + '/' + item.type + '.png'
@@ -66,14 +79,11 @@
 			{{data}}\
 				<li class="item">\
 					<img src="{{icon}}" class="ls-icon" />\
-					<a href={{source}} class="ls-title">{{title|tease>7}}</a>\
+					<a href={{url}} class="ls-title">{{title|tease>7}}</a>\
 					<div class="ls-link">\
-						<a href={{source}}>{{source}}</a>\
+						<a href="{{url}}">{{source}}</a>\
 					</div>\
 					<div class="ls-description">{{description|tease>21}}</div>\
-					<div class="ls-date">\
-						You\'ve favorited this page on {{date}}\
-					</div>\
 				</li>\
 			{{/data}}\
 			<li class="ls-more">\
@@ -137,8 +147,7 @@
 			var text = searchQuery();
 
 			$.get(api + '/search?text=' + text + '&pageSize=10')
-				.done(haveResults(results))
-				.fail(login);
+				.done(haveResults(results));
 		};
 
 		var ready = function (user) {
