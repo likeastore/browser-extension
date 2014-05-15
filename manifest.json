@@ -6,7 +6,8 @@
 
 	"permissions": [
 		"tabs",
-		"https://app.likeastore.com/*"
+		"https://app.likeastore.com/*",
+		"http://localhost:3001/*"
 	],
 
 	"content_scripts": [{

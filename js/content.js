@@ -1,6 +1,8 @@
 ;(function () {
 	var app = window.app = window.app || {};
-	var api = 'https://app.likeastore.com/api';
+	//var api = 'https://app.likeastore.com/api';
+	var api = 'http://localhost:3001/api';
+
 
 	var searchQuery = function () {
 		var url = $.url();
@@ -50,7 +52,7 @@
 
 		var context = results.data.map(function (item) {
 			return {
-				title: item.title || item.repo || item.name || item.authorName,
+				title: item.title || item.description,
 				description: item.description,
 				source: item.source,
 				thumbnail: item.thumbnail,
@@ -61,7 +63,7 @@
 		var template = '\
 			{{data}}\
 				<li class="item">\
-					<a href={{source}} class="ls-title">{{title}}</a>\
+					<a href={{source}} class="ls-title">{{title|tease>7}}</a>\
 					<div class="ls-link">\
 						<a href={{source}}>{{source}}</a>\
 					</div>\
