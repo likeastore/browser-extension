@@ -30,6 +30,10 @@
 	font-size: small;
 }
 
+.ls-description a, .ls-description a:visited {
+	color: #545454 !important;
+}
+
 .ls-link a {
 	color: #006621 !important;
 	font-style: normal;

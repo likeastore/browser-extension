@@ -83,7 +83,7 @@
 					<div class="ls-link">\
 						<a href="{{url}}">{{source}}</a>\
 					</div>\
-					<div class="ls-description">{{description|tease>21}}</div>\
+					<div class="ls-description">{{description|tease>21|linkify}}</div>\
 				</li>\
 			{{/data}}\
 			<li class="ls-more">\
