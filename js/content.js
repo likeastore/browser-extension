@@ -1,8 +1,6 @@
 ;(function () {
 	var app = window.app = window.app || {};
-	//var api = 'https://app.likeastore.com/api';
-	var api = 'http://localhost:3001/api';
-
+	var api = 'https://app.likeastore.com/api';
 
 	var searchQuery = function () {
 		var url = $.url();
