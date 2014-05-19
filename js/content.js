@@ -7,6 +7,13 @@
 		return url.fparam('q') || url.param('q');
 	};
 
+	var searchPage = function () {
+		var url = $.url();
+		var start = url.fparam('start') || url.param('start');
+
+		return (start / 10) + 1;
+	};
+
 	var MainView = function (block) {
 		var self = this;
 		var logo = chrome.extension.getURL('img/logo.png');
@@ -143,8 +150,9 @@
 
 		var search = function () {
 			var text = searchQuery();
+			var page = searchPage();
 
-			$.get(api + '/search?text=' + text + '&pageSize=10')
+			$.get(api + '/search?text=' + text + '&page=' + page + '&pageSize=10')
 				.done(haveResults(results));
 		};
 
