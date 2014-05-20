@@ -29,7 +29,8 @@
 		"$",
 		"jQuery",
 		"chrome",
-		"Mark"
+		"Mark",
+		"self"
 	],
 
 	"asi" : false,
