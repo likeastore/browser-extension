@@ -4,6 +4,8 @@ var pageMod = require('sdk/page-mod');
 pageMod.PageMod({
 	include: '*.google.com.ua',
 
+	contentScript: 'var app = app || {}; app.rootUrl = "' + data.url("/") + '";',
+
 	contentScriptFile: [
 		data.url("libs/jquery-2.1.1.min.js"),
 		data.url("libs/jquery-wait.until.js"),

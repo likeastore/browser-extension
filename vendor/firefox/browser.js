@@ -5,7 +5,7 @@
 		name: 'Firefox',
 
 		getUrl: function (url) {
-			throw new Error('not implemented');
+			return app.rootUrl + '/' + url;
 		}
 	};
 })(window);

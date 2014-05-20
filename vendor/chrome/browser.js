@@ -5,7 +5,7 @@
 		name: 'Chrome',
 
 		getUrl: function (url) {
-			return chrome.extension.getURL(url);
+			return app.rootUrl + '/' + url;
 		}
 	};
 })(window);

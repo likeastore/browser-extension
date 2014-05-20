@@ -1,17 +1,20 @@
 {
+	"id": "jid1-pKHgArhfZT000Q",
 	"license": "MIT",
 	"description": "Social bookmarking for geeks.",
 	"contributors": [],
 	"author": "alexander.beletsky@gmail",
 	"url": "https://likeastore.com",
-	"name": "Likeastore",
+	"name": "likeastore",
 	"version": "1.0.6",
 	"lib": "data",
 	"main": "data/main",
+	"data": "data",
+	"icon": "data/img/logo_48px.png",
 	"fullName": "Likeastore - Social bookmarking for geeks",
 	"permissions": {
-		"cross-domain-content": {
+		"cross-domain-content": [
 			"https://app.likeastore.com"
-		}
+		]
 	}
 }
