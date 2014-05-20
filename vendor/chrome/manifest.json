@@ -2,7 +2,7 @@
 	"manifest_version": 2,
 	"name": "Likeastore",
 	"description": "Social bookmarks for geeks.",
-	"version": "1.0.5",
+	"version": "1.0.6",
 
 	"permissions": [
 		"tabs",
@@ -222,7 +222,6 @@
 	},
 
 	"web_accessible_resources": [
-		"img/*.png",
-		"bower_components/likeastore-icons-pack/128/*.png"
+		"img/*.png"
 	]
 }

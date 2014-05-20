@@ -1,6 +1,7 @@
 ;(function () {
 	var app = window.app = window.app || {};
 	var api = 'https://app.likeastore.com/api';
+	var img = chrome.extension.getURL('img');
 
 	var searchQuery = function () {
 		var url = $.url();
@@ -16,13 +17,12 @@
 
 	var MainView = function (block) {
 		var self = this;
-		var logo = chrome.extension.getURL('img/logo.png');
 
 		self.$ = $('\
 			<div class="ls-search">\
 				<div class="logo">\
 					<a href="https://likeastore.com">\
-						<img src="' + logo +'" alt="likeastore.com" style="width: 180px" />\
+						<img src="' + img + '/logo.png' + '" alt="likeastore.com" style="width: 180px" />\
 					</a>\
 				</div>\
 				<div class="ls-container"><div class="ls-loader"></div></div>\
@@ -54,7 +54,6 @@
 
 	var ResultsView = function (results) {
 		var self = this;
-		var icons = chrome.extension.getURL('bower_components/likeastore-icons-pack/128');
 
 		var title = function (item) {
 			return item.titleHtml || item.title;
@@ -76,7 +75,7 @@
 				source: source(item),
 				thumbnail: item.thumbnail,
 				date: new Date(item.date).toLocaleDateString(),
-				icon: icons + '/' + item.type + '.png'
+				icon: img + '/' + item.type + '.png'
 			};
 		});
 

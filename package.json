@@ -1,0 +1,26 @@
+{
+  "name": "browser-extension",
+  "version": "1.0.6",
+  "description": "Likeastore Browser Extension",
+  "main": "gulpfile.js",
+  "devDependencies": {
+    "event-stream": "~3.1.5",
+    "gulp": "~3.6.2",
+    "gulp-clean": "~0.2.4",
+    "gulp-run-sequence": "~0.3.2",
+    "gulp-zip": "~0.3.4"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/likeastore/chrome-extention.git"
+  },
+  "author": "alexander.beletsky@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/likeastore/chrome-extention/issues"
+  },
+  "homepage": "https://github.com/likeastore/chrome-extention"
+}
