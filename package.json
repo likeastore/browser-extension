@@ -15,12 +15,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/likeastore/chrome-extention.git"
+    "url": "git://github.com/likeastore/browser-extention.git"
   },
   "author": "alexander.beletsky@gmail.com",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/likeastore/chrome-extention/issues"
+    "url": "https://github.com/likeastore/browser-extention/issues"
   },
-  "homepage": "https://github.com/likeastore/chrome-extention"
+  "homepage": "https://github.com/likeastore/browser-extention"
 }
