@@ -15,7 +15,7 @@
 			properties: {
 				distinct_id: mixpanel.distinct_id,
 				token: mixpanel.token,
-				browser: 'Chrome'
+				browser: app.browser.name
 			}
 		};
 

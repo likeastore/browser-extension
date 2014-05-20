@@ -1,7 +1,7 @@
 ;(function () {
 	var app = window.app = window.app || {};
 	var api = 'https://app.likeastore.com/api';
-	var img = chrome.extension.getURL('img');
+	var img = app.browser.getURL('img');
 
 	var searchQuery = function () {
 		var url = $.url();

@@ -10,6 +10,7 @@ pageMod.PageMod({
 		data.url("libs/markup-1.5.18.min.js"),
 		data.url("libs/purl-2.3.1.js"),
 		data.url("libs/base64.js"),
+		data.url("js/browser.js"),
 		data.url("js/linkify.js"),
 		data.url("js/analytics.js"),
 		data.url("js/content.js")

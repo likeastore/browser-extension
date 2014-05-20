@@ -18,6 +18,7 @@
 			"libs/markup-1.5.18.min.js",
 			"libs/purl-2.3.1.js",
 			"libs/base64.js",
+			"js/browser.js",
 			"js/linkify.js",
 			"js/analytics.js",
 			"js/content.js"
