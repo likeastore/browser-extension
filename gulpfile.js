@@ -3,8 +3,9 @@ var clean    = require('gulp-clean');
 var es       = require('event-stream');
 var rseq     = require('gulp-run-sequence');
 var zip      = require('gulp-zip');
+var shell    = require('gulp-shell');
 var chrome   = require('./vendor/chrome/manifest');
-//var firefox  = require('./vendor/firefox/package');
+var firefox  = require('./vendor/firefox/package');
 
 function pipe(src, transforms, dest) {
 	if (typeof transforms === 'string') {
@@ -44,6 +45,11 @@ gulp.task('chrome-dist', function () {
 		.pipe(zip('chrome-extension-' + chrome.version + '.zip'))
 		.pipe(gulp.dest('./dist/chrome'));
 });
+
+gulp.task('firefox-dist', shell.task([
+	'mkdir dist/firefox',
+	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx xpi --output-file=../../dist/firefox/firefox-extension-' + firefox.version + '.xpi',
+]));
 
 gulp.task('firefox', function() {
 	return es.merge(
