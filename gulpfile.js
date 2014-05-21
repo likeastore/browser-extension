@@ -40,17 +40,6 @@ gulp.task('chrome', function() {
 	);
 });
 
-gulp.task('chrome-dist', function () {
-	gulp.src('./build/chrome/**/*')
-		.pipe(zip('chrome-extension-' + chrome.version + '.zip'))
-		.pipe(gulp.dest('./dist/chrome'));
-});
-
-gulp.task('firefox-dist', shell.task([
-	'mkdir dist/firefox',
-	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx xpi --output-file=../../dist/firefox/firefox-extension-' + firefox.version + '.xpi',
-]));
-
 gulp.task('firefox', function() {
 	return es.merge(
 		pipe('./libs/**/*', './build/firefox/data/libs'),
@@ -63,12 +52,23 @@ gulp.task('firefox', function() {
 	);
 });
 
+gulp.task('chrome-dist', function () {
+	gulp.src('./build/chrome/**/*')
+		.pipe(zip('chrome-extension-' + chrome.version + '.zip'))
+		.pipe(gulp.dest('./dist/chrome'));
+});
+
+gulp.task('firefox-dist', shell.task([
+	'mkdir -p dist/firefox',
+	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx xpi --output-file=../../dist/firefox/firefox-extension-' + firefox.version + '.xpi > /dev/null',
+]));
+
 gulp.task('default', function(cb) {
 	return rseq('clean', ['chrome', 'firefox'], cb);
 });
 
 gulp.task('dist', function(cb) {
-	return rseq('clean', ['chrome', 'firefox'], 'chrome-dist', cb);
+	return rseq('clean', ['chrome', 'firefox'], ['chrome-dist', 'firefox-dist'], cb);
 });
 
 gulp.task('watch', function() {
