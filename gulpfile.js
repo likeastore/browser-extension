@@ -63,6 +63,10 @@ gulp.task('firefox-dist', shell.task([
 	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx xpi --output-file=../../dist/firefox/firefox-extension-' + firefox.version + '.xpi > /dev/null',
 ]));
 
+gulp.task('firefox-run', shell.task([
+	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx run',
+]));
+
 gulp.task('default', function(cb) {
 	return rseq('clean', ['chrome', 'firefox'], cb);
 });
@@ -73,4 +77,8 @@ gulp.task('dist', function(cb) {
 
 gulp.task('watch', function() {
 	gulp.watch(['./js/**/*', './css/**/*', './vendor/**/*', './img/**/*'], ['default']);
+});
+
+gulp.task('run', function (cb) {
+	return rseq('firefox', 'firefox-run', cb);
 });
