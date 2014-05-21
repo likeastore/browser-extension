@@ -20,7 +20,9 @@ pageMod.PageMod({
 		data.url("js/content.js")
 	],
 
-	contentStyleFile: data.url("css/context.css"),
+	contentStyleFile: [
+		data.url("css/content.css")
+	],
 
 	contentScriptWhen: 'start'
 });
