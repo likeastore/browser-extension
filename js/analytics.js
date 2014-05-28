@@ -20,8 +20,8 @@
 		};
 
 		var data = window.base64(JSON.stringify(payload));
-
 		var url = api + '/track?data=' + data;
+
 		$.get(url);
 	}
 
