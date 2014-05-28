@@ -22,8 +22,8 @@
 	list-style: none;
 }
 
-.ls-container li {
-	padding: 10px 0;
+li.item {
+	margin-bottom: 23px;
 }
 
 .ls-description {

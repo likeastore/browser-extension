@@ -3,6 +3,8 @@
 	var api = 'https://app.likeastore.com/api';
 	var img = app.browser.getUrl('img');
 
+	$.ajaxSetup({xhrFields: {withCredentials: true}});
+
 	var searchQuery = function () {
 		var url = $.url();
 		return url.fparam('q') || url.param('q');
@@ -129,7 +131,7 @@
 			return $.get(api + '/users/me');
 		};
 
-		var login = function () {
+		var login = function (error) {
 			var mainView = new MainView(block);
 			mainView.subview(new LoginView());
 			mainView.render();
@@ -161,6 +163,8 @@
 
 		return {
 			run: function () {
+				app.linkify.init();
+
 				user()
 					.done(ready)
 					.done(search)

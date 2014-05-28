@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Likeastore</string>
+	<key>Builder Version</key>
+	<string>9537.76.4</string>
+	<key>CFBundleDisplayName</key>
+	<string>likeastore</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.likeastore.safariextension</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>Chrome</key>
+	<dict/>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>js/linkify.js</string>
+				<string>js/analytics.js</string>
+				<string>js/browser.js</string>
+				<string>js/content.js</string>
+			</array>
+			<key>Start</key>
+			<array>
+				<string>libs/base64.js</string>
+				<string>libs/jquery-2.1.1.min.js</string>
+				<string>libs/jquery-wait.until.js</string>
+				<string>libs/markup-1.5.18.min.js</string>
+				<string>libs/purl-2.3.1.js</string>
+			</array>
+		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>css/content.css</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>Social bookmarking for geeks</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*.google.com.ua</string>
+			</array>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Website</key>
+	<string>https://likeastore.com</string>
+</dict>
+</plist>

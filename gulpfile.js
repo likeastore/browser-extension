@@ -52,6 +52,18 @@ gulp.task('firefox', function() {
 	);
 });
 
+gulp.task('safari', function() {
+	return es.merge(
+		pipe('./libs/**/*', './build/safari/likeastore.safariextension/libs'),
+		pipe('./img/**/*', './build/safari/likeastore.safariextension/img'),
+		pipe('./js/**/*', './build/safari/likeastore.safariextension/js'),
+		pipe('./css/**/*', './build/safari/likeastore.safariextension/css'),
+		pipe('./vendor/safari/browser.js', './build/safari/likeastore.safariextension/js'),
+		pipe('./vendor/safari/Info.plist', './build/safari/likeastore.safariextension'),
+		pipe('./vendor/safari/Settings.plist', './build/safari/likeastore.safariextension')
+	);
+});
+
 gulp.task('chrome-dist', function () {
 	gulp.src('./build/chrome/**/*')
 		.pipe(zip('chrome-extension-' + chrome.version + '.zip'))
@@ -68,7 +80,7 @@ gulp.task('firefox-run', shell.task([
 ]));
 
 gulp.task('default', function(cb) {
-	return rseq('clean', ['chrome', 'firefox'], cb);
+	return rseq('clean', ['chrome', 'firefox', 'safari'], cb);
 });
 
 gulp.task('dist', function(cb) {
