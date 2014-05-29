@@ -22,7 +22,7 @@
 	list-style: none;
 }
 
-li.item {
+.ls-container li {
 	margin-bottom: 23px;
 }
 

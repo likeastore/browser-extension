@@ -79,10 +79,6 @@ gulp.task('firefox-run', shell.task([
 	'cd ./build/firefox && ../../tools/addon-sdk-1.16/bin/cfx run',
 ]));
 
-gulp.task('default', function(cb) {
-	return rseq('clean', ['chrome', 'firefox', 'safari'], cb);
-});
-
 gulp.task('dist', function(cb) {
 	return rseq('clean', ['chrome', 'firefox'], ['chrome-dist', 'firefox-dist'], cb);
 });
@@ -93,4 +89,8 @@ gulp.task('watch', function() {
 
 gulp.task('run', function (cb) {
 	return rseq('firefox', 'firefox-run', cb);
+});
+
+gulp.task('default', function(cb) {
+	return rseq('clean', ['chrome', 'firefox', 'safari'], cb);
 });
