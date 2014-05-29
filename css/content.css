@@ -57,16 +57,16 @@
 }
 
 .ls-login {
-	color: #808080;
+	color: #808080 !important;;
 	font-size: small;
 }
 
 .ls-login a {
-	color: #808080;
+	color: #808080 !important;;
 }
 
 .ls-login a:visited {
-	color: #808080;
+	color: #808080 !important;;
 }
 
 .ls-share a, .ls-share a:visited {
