@@ -6,6 +6,7 @@
   "devDependencies": {
     "event-stream": "~3.1.5",
     "gulp": "~3.6.2",
+    "gulp-shell": "^0.2.5",
     "gulp-clean": "~0.2.4",
     "gulp-run-sequence": "~0.3.2",
     "gulp-zip": "~0.3.4"

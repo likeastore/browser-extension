@@ -9,8 +9,8 @@
 	width: 424px;
 }
 
-.ls-title: {
-	font-size: 15px;
+.ls-title {
+	font-size: 16px;
 	padding: 4px 0;
 }
 
@@ -23,7 +23,7 @@
 }
 
 .ls-container li {
-	margin-bottom: 23px;
+	margin-bottom: 23px !important;
 }
 
 .ls-description {
@@ -48,7 +48,7 @@
 
 .ls-more {
 	margin-top: 20px;
-	color: #808080;
+	color: #808080 !important;
 	font-size: small;
 }
 
