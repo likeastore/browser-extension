@@ -25,9 +25,26 @@
 		$.get(url);
 	}
 
+	function increment(property) {
+		var inc = {};
+		inc[property] = 1;
+
+		var payload = {
+			$token: mixpanel.token,
+			$distinct_id: mixpanel.distinct_id,
+			$add: inc
+		};
+
+		var data = window.base64(JSON.stringify(payload));
+		var url = api + '/engage?data=' + data;
+
+		$.get(url);
+	}
+
 	app.analytics = {
 		init: init,
-		track: track
+		track: track,
+		increment: increment
 	};
 
 })(window);

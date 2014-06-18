@@ -123,6 +123,7 @@
 			});
 
 			app.analytics.track('search extension');
+			app.analytics.increment('Searches by Extension');
 		};
 	};
 
