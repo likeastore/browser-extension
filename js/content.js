@@ -74,6 +74,7 @@
 				title: title(item) || description(item),
 				description: description(item),
 				url: item.source,
+				trackUrl: item.trackUrl,
 				source: source(item),
 				thumbnail: item.thumbnail,
 				date: new Date(item.date).toLocaleDateString(),
@@ -85,9 +86,9 @@
 			{{data}}\
 				<li class="item">\
 					<img src="{{icon}}" class="ls-icon" />\
-					<a href={{url}} class="ls-title">{{title|tease>7}}</a>\
+					<a href={{trackUrl}} class="ls-title">{{title|tease>7}}</a>\
 					<div class="ls-link">\
-						<a href="{{url}}">{{source}}</a>\
+						<a href="{{trackUrl}}">{{source}}</a>\
 					</div>\
 					<div class="ls-description">{{description|tease>21|linkify}}</div>\
 				</li>\
@@ -154,7 +155,7 @@
 			var text = searchQuery();
 			var page = searchPage();
 
-			$.get(api + '/search?text=' + text + '&page=' + page + '&pageSize=10')
+			$.get(api + '/search?text=' + text + '&page=' + page + '&pageSize=10&track=1')
 				.done(haveResults(results));
 		};
 
