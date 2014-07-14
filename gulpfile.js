@@ -96,7 +96,7 @@ gulp.task('run', function (cb) {
 });
 
 gulp.task('addons', shell.task([
-	'cp -R ./dist ../addons/files'
+	'cp -R ./dist ../addons'
 ]));
 
 gulp.task('default', function(cb) {
