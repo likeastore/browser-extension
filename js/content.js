@@ -14,7 +14,7 @@
 		var url = $.url();
 		var start = url.fparam('start') || url.param('start');
 
-		return (start / 10) + 1;
+		return (start && (start / 10) + 1) || 1;
 	};
 
 	var MainView = function (block) {
