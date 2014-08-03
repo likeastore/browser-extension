@@ -6,7 +6,7 @@
 	"author": "alexander.beletsky@gmail",
 	"url": "https://likeastore.com",
 	"name": "likeastore",
-	"version": "1.0.11",
+	"version": "1.0.12",
 	"lib": "data",
 	"main": "data/main",
 	"data": "data",

@@ -101,6 +101,16 @@
 			};
 		});
 
+		context.collections = results.collections && results.collections.data.map(function (item) {
+			return {
+				title: title(item) || description(item),
+				description: description(item) || title(item),
+				url: 'https://app.likeastore.com/u/' + item.userData.name + '/' + item._id,
+				by: item.userData.name,
+				icon: item.userData.avatar
+			};
+		});
+
 		var template = '\
 			{{if data.items|notempty}}\
 				<p>From your favorites:</p>\
@@ -129,6 +139,20 @@
 						<a class="ls-detail" href="{{collectionUrl}}">favorited by @{{by}} at: {{date}}</a>\
 					</li>\
 				{{/data.feeds}}\
+			{{/if}}\
+			{{if data.collections|notempty}}\
+				<p>Suggested collections to follow:</p>\
+				{{data.collections}}\
+					<li class="item">\
+						<img src="{{icon}}" class="ls-icon-avatar" />\
+						<a href="{{url}}" class="ls-title">{{title|tease>7}}</a>\
+						<div class="ls-link">\
+							<a href="{{url}}">{{url}}</a>\
+						</div>\
+						<div class="ls-description">{{description|tease>21|linkify}}</div>\
+						<a class="ls-detail" href="{{collectionUrl}}">currated by @{{by}}</a>\
+					</li>\
+				{{/data.collections}}\
 			{{/if}}\
 			<li class="ls-more">\
 				<div>\
@@ -178,15 +202,13 @@
 
 		var haveResults = function (fn) {
 			return function (res) {
-				// var withItem = res && res.items.data && res.items.data.length > 0;
-				// var withFeed = res && res.feeds.data && res.feeds.data.length > 0;
-				// var withCollections = res && res.collections.data && res.collections.data.length > 0;
+				var items = res && res.items.data && res.items.data.length > 0;
+				var feeds = res && res.feeds.data && res.feeds.data.length > 0;
+				var collections = res && res.collections.data && res.collections.data.length > 0;
 
-				// if (withItem || withFeed || withCollections) {
-				// 	fn(res);
-				// }
-
-				fn(res);
+				if (items || feeds || collections) {
+					fn(res);
+				}
 			};
 		};
 
