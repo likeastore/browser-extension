@@ -18,6 +18,11 @@
 	margin-top: 10px;
 }
 
+.ls-container p {
+	color: #808080 !important;
+	font-size: 13px;
+}
+
 .ls-container ul li {
 	list-style: none;
 }
@@ -48,6 +53,11 @@
 
 .ls-more {
 	margin-top: 20px;
+	color: #808080 !important;
+	font-size: small;
+}
+
+.ls-detail {
 	color: #808080 !important;
 	font-size: small;
 }

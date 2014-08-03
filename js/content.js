@@ -1,6 +1,8 @@
 ;(function () {
 	var app = window.app = window.app || {};
-	var api = 'https://app.likeastore.com/api';
+	//var api = 'https://app.likeastore.com/api';
+	var api = 'http://localhost:3001/api';
+
 	var img = app.browser.getUrl('img');
 
 	$.ajaxSetup({xhrFields: {withCredentials: true}});
@@ -69,7 +71,9 @@
 			return item.sourceHtml || item.source;
 		};
 
-		var context = results.data.map(function (item) {
+		var context = {};
+
+		context.items = results.items && results.items.data.map(function (item) {
 			return {
 				title: title(item) || description(item),
 				description: description(item),
@@ -82,17 +86,50 @@
 			};
 		});
 
+		context.feeds = results.feeds && results.feeds.data.map(function (item) {
+			return {
+				title: title(item) || description(item),
+				description: description(item),
+				url: item.source,
+				trackUrl: item.trackUrl,
+				source: source(item),
+				thumbnail: item.thumbnail,
+				date: new Date(item.date).toLocaleDateString(),
+				by: item.collection.owner.name,
+				collectionUrl: 'https://app.likeastore.com/u/' + item.collection.owner.name + '/' + item.collection._id,
+				icon: img + '/' + item.type + '.png'
+			};
+		});
+
 		var template = '\
-			{{data}}\
-				<li class="item">\
-					<img src="{{icon}}" class="ls-icon" />\
-					<a href={{trackUrl}} class="ls-title">{{title|tease>7}}</a>\
-					<div class="ls-link">\
-						<a href="{{trackUrl}}">{{source}}</a>\
-					</div>\
-					<div class="ls-description">{{description|tease>21|linkify}}</div>\
-				</li>\
-			{{/data}}\
+			{{if data.items|notempty}}\
+				<p>From your favorites:</p>\
+				{{data.items}}\
+					<li class="item">\
+						<img src="{{icon}}" class="ls-icon" />\
+						<a href="{{trackUrl}}" class="ls-title">{{title|tease>7}}</a>\
+						<div class="ls-link">\
+							<a href="{{trackUrl}}">{{source}}</a>\
+						</div>\
+						<div class="ls-description">{{description|tease>21|linkify}}</div>\
+						<a class="ls-detail" href="{{trackUrl}}">favorited by you at: {{date}}</a>\
+					</li>\
+				{{/data.items}}\
+			{{/if}}\
+			{{if data.feeds|notempty}}\
+				<p>From your feed:</p>\
+				{{data.feeds}}\
+					<li class="item">\
+						<img src="{{icon}}" class="ls-icon" />\
+						<a href="{{trackUrl}}" class="ls-title">{{title|tease>7}}</a>\
+						<div class="ls-link">\
+							<a href="{{trackUrl}}">{{source}}</a>\
+						</div>\
+						<div class="ls-description">{{description|tease>21|linkify}}</div>\
+						<a class="ls-detail" href="{{collectionUrl}}">favorited by @{{by}} at: {{date}}</a>\
+					</li>\
+				{{/data.feeds}}\
+			{{/if}}\
 			<li class="ls-more">\
 				<div>\
 					Not found yet? Visit the web site for <a href="{{more}}">more</a> results.\
@@ -141,7 +178,15 @@
 
 		var haveResults = function (fn) {
 			return function (res) {
-				res && res.data && res.data.length > 0 && fn(res);
+				// var withItem = res && res.items.data && res.items.data.length > 0;
+				// var withFeed = res && res.feeds.data && res.feeds.data.length > 0;
+				// var withCollections = res && res.collections.data && res.collections.data.length > 0;
+
+				// if (withItem || withFeed || withCollections) {
+				// 	fn(res);
+				// }
+
+				fn(res);
 			};
 		};
 
@@ -155,7 +200,7 @@
 			var text = searchQuery();
 			var page = searchPage();
 
-			$.get(api + '/search?text=' + text + '&page=' + page + '&pageSize=10&track=1')
+			$.get(api + '/search2?text=' + text + '&page=' + page + '&pageSize=6&track=1')
 				.done(haveResults(results));
 		};
 
