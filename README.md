@@ -18,6 +18,8 @@ $ gulp
 
 The `/build` folder is created. It's recommened to use Chome for development, since it's very easy to create extension from folder with sources.
 
+## Distribution
+
 Once the changes are in-place and ready for distribution:
 
 1. Update all `/vendor` package file with new version (`manifest.json`, `package.json`, `Settings.plist`).
