@@ -221,7 +221,7 @@
 			var text = searchQuery();
 			var page = searchPage();
 
-			$.get(api + '/search2?text=' + text + '&page=' + page + '&pageSize=7&track=1')
+			$.get(api + '/search?text=' + text + '&page=' + page + '&pageSize=7&track=1')
 				.done(haveResults(results));
 		};
 
