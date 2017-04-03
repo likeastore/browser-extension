@@ -1,4 +1,4 @@
-# Likeastore Browser Extention
+# Likeastore Browser Extension
 
 Augments Google search results with search from your likes.
 
